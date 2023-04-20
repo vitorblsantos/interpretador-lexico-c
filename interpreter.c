@@ -4,7 +4,7 @@
 #include "tokens.h"
 #include "tabelas.h"
 
-extern FILE *file;
+extern FILE *yyin;
 
 void inicializa_analise(char *nome_arq)
 {
@@ -15,7 +15,7 @@ void inicializa_analise(char *nome_arq)
     exit(1);
   }
 
-  file = f;
+  yyin = f;
 }
 
 void finaliza_analise()
@@ -25,7 +25,7 @@ void finaliza_analise()
   destroi_tab_simbolos(); 
 
   // fecha arquivo de entrada
-  fclose(file);
+  fclose(yyin);
 }
 
 void imprime_token(Token *tok)
